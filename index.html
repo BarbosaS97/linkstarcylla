@@ -161,6 +161,63 @@
     background: linear-gradient(90deg, rgba(89,20,33,.92) 0%, rgba(89,20,33,.72) 32%, rgba(89,20,33,.28) 62%, rgba(89,20,33,0) 100%);
   }
 
+  .ig-fader{
+    position: absolute;
+    inset: 0;
+    display: none;
+  }
+  @media (min-width: 768px){
+    .ig-fader{ display: block; }
+  }
+  .ig-snap{
+    position: absolute;
+    width: 118px;
+    aspect-ratio: 4 / 5;
+    padding: 5px 5px 14px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.35);
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity .65s ease;
+  }
+  .ig-snap.is-hidden{ opacity: 0; }
+  .ig-snap:nth-child(1){ top: 9%;  left: 6%;  z-index: 3; transform: rotate(-7deg); }
+  .ig-snap:nth-child(2){ top: 34%; left: 26%; z-index: 2; width: 132px; transform: rotate(5deg); }
+  .ig-snap:nth-child(3){ top: 64%; left: 6%;  z-index: 3; transform: rotate(4deg); }
+  .ig-snap:nth-child(4){ top: 20%; left: 34%; z-index: 4; width: 108px; transform: rotate(-6deg); }
+  .ig-snap-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .ig-fader-img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .ig-footer-fader{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+  .ig-footer-fader .ig-snap{
+    width: 152px;
+    padding: 5px 5px 13px;
+    box-shadow: 0 12px 26px rgba(0,0,0,.4);
+  }
+  .ig-footer-fader .ig-snap:nth-child(1){ top: 2%;  left: -6%;  right: auto; z-index: 2; transform: rotate(-9deg); }
+  .ig-footer-fader .ig-snap:nth-child(2){ top: -2%; left: auto; right: -8%; z-index: 3; transform: rotate(8deg); width: 164px; }
+  .ig-footer-fader .ig-snap:nth-child(3){ top: auto; bottom: -4%; left: 50%; margin-left: -76px; z-index: 2; transform: rotate(-5deg); width: 160px; }
+  .ig-footer-fader .ig-snap:nth-child(4){ top: 34%; left: 50%; margin-left: -70px; z-index: 4; transform: rotate(3deg); width: 140px; }
+
   .page-content{
     position: relative;
     z-index: 10;
@@ -182,8 +239,14 @@
 
 <!-- ================= VÍDEO DE FUNDO ================= -->
 <div class="video-bg">
-  <video autoplay muted loop playsinline disablePictureInPicture aria-hidden="true" src="assets/tarcylla-video.mp4"></video>
   <div class="video-bg-overlay"></div>
+  <div class="ig-fader" id="igFader" aria-hidden="true">
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+  </div>
+  <video autoplay muted loop playsinline disablePictureInPicture aria-hidden="true" src="assets/tarcylla-video.mp4"></video>
 </div>
 
 <div class="page-content">
@@ -339,7 +402,16 @@
 </section>
 
 <!-- ================= RODAPÉ ================= -->
-<footer class="panel-vinho mt-10 pt-12 pb-8 text-center">
+<footer class="panel-vinho relative overflow-hidden mt-10 pt-12 pb-8 text-center">
+
+  <div class="ig-footer-fader md:hidden" id="igFaderFooter" aria-hidden="true">
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+    <div class="ig-snap"><div class="ig-snap-inner"><img class="ig-fader-img" alt=""></div></div>
+  </div>
+
+  <div class="relative z-10">
   <p class="fade-in text-[11px] uppercase tracking-[0.3em] text-white/70 mb-5">Me acompanhe nas redes</p>
 
   <div class="fade-in flex items-center justify-center gap-4 mb-8">
@@ -357,6 +429,7 @@
   <img src="assets/logo-rosa.png" alt="Tarcylla Moura" class="w-11 h-11 object-contain mx-auto mb-4 fade-in">
 
   <p class="fade-in text-xs text-white/60">2026 Tarcylla Moura. Todos os direitos reservados.</p>
+  </div>
 </footer>
 
 </div>
@@ -372,6 +445,63 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  (function(){
+    const photos = ['assets/ig-1.jpg','assets/ig-2.jpg','assets/ig-3.jpg','assets/ig-4.jpg','assets/ig-5.jpg','assets/ig-6.jpg'];
+    photos.forEach(src => { const p = new Image(); p.src = src; });
+
+    function nextIndex(snap){
+      let idx;
+      do { idx = Math.floor(Math.random() * photos.length); } while (idx === snap.lastIndex);
+      snap.lastIndex = idx;
+      return idx;
+    }
+
+    function tick(snap){
+      snap.el.classList.add('is-hidden');
+      setTimeout(() => {
+        snap.img.src = photos[nextIndex(snap)];
+        snap.el.classList.remove('is-hidden');
+      }, 650);
+    }
+
+    function initFader(id, mediaQuery, offset){
+      const fader = document.getElementById(id);
+      if (!fader) return;
+
+      const snaps = Array.from(fader.querySelectorAll('.ig-snap')).map((el, i) => {
+        const img = el.querySelector('.ig-fader-img');
+        const firstIdx = (i + offset) % photos.length;
+        img.src = photos[firstIdx];
+        return { el, img, lastIndex: firstIdx, timer: null };
+      });
+
+      const mq = mediaQuery ? window.matchMedia(mediaQuery) : null;
+
+      function start(){
+        snaps.forEach((snap, i) => {
+          if (snap.timer) return;
+          const delay = 3200 + i * 900;
+          setTimeout(() => {
+            if (mq && !mq.matches) return;
+            tick(snap);
+            snap.timer = setInterval(() => tick(snap), 5200 + i * 700);
+          }, delay);
+        });
+      }
+      function stop(){
+        snaps.forEach(snap => {
+          if (snap.timer) { clearInterval(snap.timer); snap.timer = null; }
+        });
+      }
+
+      if (!mq || mq.matches) start();
+      if (mq) mq.addEventListener('change', (e) => e.matches ? start() : stop());
+    }
+
+    initFader('igFader', '(min-width: 768px)', 0);
+    initFader('igFaderFooter', '(max-width: 767px)', 3);
+  })();
 </script>
 
 </body>
