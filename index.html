@@ -59,16 +59,26 @@
     background: rgba(255,255,255,.16);
     color: #fff;
   }
-  .arrow-circle-solid{
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.35);
-    color: #fff;
-    transition: background .3s ease, transform .3s ease;
+
+  .card-clip{
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
   }
-  .card-solid:hover .arrow-circle-solid{
+
+  .arrow-badge{
+    background: var(--vinho-dark);
+    border: 2.5px solid var(--bg);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,.28);
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+  }
+  .card-solid:hover .arrow-badge{
     background: #fff;
     color: var(--vinho);
-    transform: translateX(3px);
+    transform: scale(1.08) rotate(8deg);
   }
 
   .card-accent-photo{
@@ -163,12 +173,12 @@
 <div class="page-content">
 
 <!-- ================= IDENTIDADE ================= -->
-<header class="max-w-md md:max-w-2xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 text-center md:text-left">
-  <img src="assets/logo-rosa.png" alt="Logo Tarcylla Moura" class="fade-in w-16 h-16 md:w-24 md:h-24 object-contain mb-3 mx-auto md:mx-0">
+<header class="max-w-md md:max-w-2xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 text-center">
+  <img src="assets/logo-rosa.png" alt="Logo Tarcylla Moura" class="fade-in w-16 h-16 md:w-24 md:h-24 object-contain mb-3 mx-auto">
   <h1 class="fade-in font-serif-elegant text-white text-[32px] md:text-[52px] leading-[1.1] font-semibold">Tarcylla Moura</h1>
   <p class="fade-in text-white/85 text-sm md:text-lg mt-1">Gestão Estratégica</p>
-  <div class="divider-light my-4 mx-auto md:mx-0 fade-in"></div>
-  <p class="fade-in text-white text-sm md:text-lg leading-relaxed max-w-xs md:max-w-sm mx-auto md:mx-0">
+  <div class="divider-light my-4 mx-auto fade-in"></div>
+  <p class="fade-in text-white text-sm md:text-lg leading-relaxed max-w-xs md:max-w-sm mx-auto">
     Estratégia e comunicação para transformar <span class="font-semibold">ideias</span> em posicionamento e <span class="font-semibold">resultado</span>.
   </p>
   <p class="fade-in font-serif-elegant italic text-white/90 text-sm md:text-base mt-3">"Ideias precisam de direção."</p>
@@ -181,9 +191,11 @@
 
     <!-- Card 1 -->
     <a href="https://tarcylla-moura-landing-page.pedromarts-93.workers.dev/" target="_blank" rel="noopener"
-       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px] overflow-hidden">
-      <img src="assets/tarcylla-portfolio.png" alt="" class="card-accent-photo h-32 md:h-36">
-      <div class="arrow-circle-solid absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px]">
+      <div class="card-clip">
+        <img src="assets/tarcylla-portfolio.png" alt="" class="card-accent-photo h-32 md:h-36">
+      </div>
+      <div class="arrow-badge absolute -top-2.5 -right-2.5 w-9 h-9 rounded-full flex items-center justify-center z-20">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="icon-circle-solid w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative z-10 mr-4">
@@ -197,9 +209,11 @@
 
     <!-- Card 2 -->
     <a href="https://connectionamigosdoturismo.com.br" target="_blank" rel="noopener"
-       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px] overflow-hidden">
-      <img src="assets/tarcylla-connection.png" alt="" class="card-accent-photo h-32 md:h-36">
-      <div class="arrow-circle-solid absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px]">
+      <div class="card-clip">
+        <img src="assets/tarcylla-connection.png" alt="" class="card-accent-photo h-32 md:h-36">
+      </div>
+      <div class="arrow-badge absolute -top-2.5 -right-2.5 w-9 h-9 rounded-full flex items-center justify-center z-20">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="icon-circle-solid w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative z-10 mr-4">
@@ -213,9 +227,11 @@
 
     <!-- Card 3 -->
     <a href="https://www.youtube.com/@tarcyllamoura" target="_blank" rel="noopener"
-       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px] overflow-hidden">
-      <img src="assets/tarcylla-youtube.png" alt="" class="card-accent-photo h-32 md:h-36">
-      <div class="arrow-circle-solid absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px]">
+      <div class="card-clip">
+        <img src="assets/tarcylla-youtube.png" alt="" class="card-accent-photo h-32 md:h-36">
+      </div>
+      <div class="arrow-badge absolute -top-2.5 -right-2.5 w-9 h-9 rounded-full flex items-center justify-center z-20">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="icon-circle-solid w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative z-10 mr-4">
@@ -229,9 +245,11 @@
 
     <!-- Card 4 -->
     <a href="https://wa.me/556198158802?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20estrutura%C3%A7%C3%A3o%20digital" target="_blank" rel="noopener"
-       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px] overflow-hidden">
-      <img src="assets/tarcylla.png" alt="" class="card-accent-photo h-32 md:h-36">
-      <div class="arrow-circle-solid absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px]">
+      <div class="card-clip">
+        <img src="assets/tarcylla.png" alt="" class="card-accent-photo h-32 md:h-36">
+      </div>
+      <div class="arrow-badge absolute -top-2.5 -right-2.5 w-9 h-9 rounded-full flex items-center justify-center z-20">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="icon-circle-solid w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative z-10 mr-4">
@@ -245,9 +263,11 @@
 
     <!-- Card 5 -->
     <a href="https://wa.me/556198158802?text=Ol%C3%A1%2C%20Tarcylla%21%20Vim%20pelo%20seu%20link%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener"
-       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px] overflow-hidden">
-      <img src="assets/tarcylla-contato.png" alt="" class="card-accent-photo h-32 md:h-36">
-      <div class="arrow-circle-solid absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+       class="card-solid fade-in relative flex items-center p-4 rounded-3xl min-h-[132px]">
+      <div class="card-clip">
+        <img src="assets/tarcylla-contato.png" alt="" class="card-accent-photo h-32 md:h-36">
+      </div>
+      <div class="arrow-badge absolute -top-2.5 -right-2.5 w-9 h-9 rounded-full flex items-center justify-center z-20">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="icon-circle-solid w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative z-10 mr-4">
@@ -268,8 +288,9 @@
   <div class="panel-vinho rounded-[32px] overflow-hidden">
     <div class="flex flex-col md:flex-row-reverse items-center">
 
-      <div class="w-full md:w-[42%] relative fade-in">
-        <img src="assets/tarcylla-hero.png" alt="Tarcylla Moura" class="w-full h-[280px] md:h-[380px] object-cover object-top">
+      <div class="w-full md:w-[42%] relative fade-in overflow-hidden">
+        <img src="assets/tarcylla-sobre.png" alt="Tarcylla Moura" class="w-full h-[280px] md:h-[380px] object-cover" style="object-position: 60% 38%;">
+        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(89,20,33,.85) 0%, rgba(89,20,33,.45) 14%, rgba(89,20,33,0) 30%);"></div>
       </div>
 
       <div class="flex-1 px-7 py-9 md:px-12 md:py-10 text-center md:text-left">
