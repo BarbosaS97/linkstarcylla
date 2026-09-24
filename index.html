@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarcylla Moura | Estratégia, Comunicação e Posicionamento</title>
+<meta name="description" content="Ideias precisam de direção. Conheça o trabalho de Tarcylla Moura em estratégia, comunicação e posicionamento.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="assets/logo-vinho.png" type="image/png">
+
+<style>
+  :root{
+    --bg: #FAF3EC;
+    --bg-soft: #F3E7DC;
+    --card: #FFFFFF;
+    --vinho: #6E1B2E;
+    --vinho-dark: #591421;
+    --rosa: #E3AAB6;
+    --rosa-soft: #F3D9DF;
+    --marrom: #7A5C52;
+    --marrom-light: #9C8177;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--marrom);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-serif-elegant{ font-family: 'Playfair Display', serif; }
+
+  .text-vinho{ color: var(--vinho); }
+  .text-rosa{ color: var(--rosa); }
+  .text-marrom{ color: var(--marrom); }
+  .bg-vinho{ background-color: var(--vinho); }
+  .bg-rosa{ background-color: var(--rosa); }
+
+  .card{
+    background: var(--card);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(110, 27, 46, 0.06);
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+
+  .card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(110, 27, 46, 0.14);
+  }
+
+  .icon-circle{
+    background: var(--bg-soft);
+    color: var(--vinho);
+    transition: background .3s ease, color .3s ease;
+  }
+
+  .card:hover .icon-circle{
+    background: var(--rosa-soft);
+  }
+
+  .arrow-circle{
+    background: #ffffff;
+    border: 1px solid var(--bg-soft);
+    color: var(--vinho);
+    transition: background .3s ease, transform .3s ease, border-color .3s ease;
+  }
+
+  .card:hover .arrow-circle{
+    background: var(--vinho);
+    color: #fff;
+    border-color: var(--vinho);
+    transform: translateX(3px);
+  }
+
+  .social-circle{
+    border: 1.5px solid var(--vinho);
+    color: var(--vinho);
+    transition: all .3s ease;
+  }
+
+  .social-circle:hover{
+    background: var(--vinho);
+    color: #fff;
+  }
+
+  .mini-card{
+    background: var(--card);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(110,27,46,0.05);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    border: 1px solid transparent;
+  }
+
+  .mini-card:hover{
+    transform: translateY(-3px);
+    border-color: var(--rosa);
+    box-shadow: 0 10px 24px rgba(227,170,182,0.25);
+  }
+
+  .divider{
+    width: 70px;
+    height: 1px;
+    background: var(--rosa);
+    position: relative;
+  }
+  .divider::after{
+    content: "✦";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg);
+    color: var(--rosa);
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .fade-in{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-in.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-stage{
+    background: linear-gradient(165deg, #FBF1E7 0%, #F6E3DA 55%, #F2D6D9 100%);
+  }
+
+  .hero-glow-1{
+    background: radial-gradient(circle, rgba(227,170,182,.55), transparent 70%);
+    filter: blur(6px);
+  }
+  .hero-glow-2{
+    background: radial-gradient(circle, rgba(110,27,46,.14), transparent 70%);
+    filter: blur(4px);
+  }
+
+  .hero-photo-img{
+    filter: drop-shadow(14px 18px 26px rgba(110,27,46,.28));
+  }
+
+  .hero-ground-shadow{
+    background: radial-gradient(closest-side, rgba(110,27,46,.22), transparent 75%);
+    filter: blur(6px);
+  }
+
+  .scroll-cue{ animation: bounce-chevron 2.2s ease-in-out infinite; }
+  @keyframes bounce-chevron{
+    0%, 100%{ transform: translateY(0); opacity:.6; }
+    50%{ transform: translateY(6px); opacity:1; }
+  }
+
+  ::selection{
+    background: var(--rosa-soft);
+    color: var(--vinho-dark);
+  }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- ================= HERO ================= -->
+<header class="hero-stage relative w-full overflow-hidden">
+
+  <div class="hero-glow-1 absolute -left-16 -top-16 w-72 h-72 md:w-[28rem] md:h-[28rem] rounded-full pointer-events-none"></div>
+  <div class="hero-glow-2 absolute -right-10 top-24 md:top-1/3 w-40 h-40 md:w-96 md:h-96 rounded-full pointer-events-none"></div>
+
+  <div class="flex flex-wrap md:flex-nowrap w-full md:h-screen md:max-h-[780px]">
+
+    <!-- Foto 1 -->
+    <div class="relative w-1/2 md:w-[36%] h-[260px] sm:h-[320px] md:h-full order-1 flex items-end justify-center">
+      <div class="hero-ground-shadow absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-10 md:w-56 md:h-16"></div>
+      <img src="assets/tarcylla.png" alt="Tarcylla Moura" class="hero-photo-img fade-in relative w-full h-full object-contain object-bottom">
+    </div>
+
+    <!-- Conteúdo central -->
+    <div class="fade-in relative order-3 md:order-2 w-full md:w-[28%] flex flex-col items-center justify-center text-center px-6 py-10 md:py-0 z-10">
+      <img src="assets/logo-vinho.png" alt="Logo Tarcylla Moura" class="w-11 h-11 md:w-16 md:h-16 object-contain mb-2 md:mb-4">
+      <p class="text-[10px] md:text-xs leading-tight uppercase mb-2 md:mb-3" style="color:var(--marrom-light);letter-spacing:.22em;">Gestão<br>Estratégica</p>
+      <h1 class="font-serif-elegant text-[28px] md:text-[44px] leading-[1.15] text-vinho font-semibold">Tarcylla<br>Moura</h1>
+      <div class="divider my-3 md:my-5" style="width:40px"></div>
+      <p class="font-serif-elegant italic text-sm md:text-lg text-vinho leading-snug px-1">"Ideias precisam<br>de direção."</p>
+    </div>
+
+    <!-- Foto 2 -->
+    <div class="relative w-1/2 md:w-[36%] h-[260px] sm:h-[320px] md:h-full order-2 md:order-3 flex items-end justify-center">
+      <div class="hero-ground-shadow absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-10 md:w-56 md:h-16"></div>
+      <img src="assets/tarcylla-hero.png" alt="Tarcylla Moura" class="hero-photo-img fade-in relative w-full h-full object-contain object-bottom">
+    </div>
+
+  </div>
+
+  <a href="#links" aria-label="Rolar para os links" class="hidden md:flex fade-in absolute bottom-7 left-1/2 -translate-x-1/2 flex-col items-center gap-1" style="color:var(--vinho)">
+    <span class="text-[10px] tracking-[0.25em] uppercase">Explorar</span>
+    <svg class="scroll-cue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</header>
+
+<div class="max-w-md md:max-w-lg mx-auto px-6 pt-8 pb-2 text-center">
+  <p class="fade-in text-sm md:text-base leading-relaxed" style="color:var(--marrom)">
+    Estratégia para transformar ideias em negócios bem posicionados, estruturados e reconhecidos.
+    Diretora de Projetos Estratégicos do <span class="text-vinho font-medium">Connection Amigos do Turismo</span>.
+  </p>
+
+  <div class="fade-in flex items-center justify-center gap-4 mt-5">
+    <a href="https://www.behance.net/Tarcyllamoura" target="_blank" rel="noopener" aria-label="Behance" class="social-circle w-11 h-11 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 6h6a3 3 0 0 1 0 6H2z"/><path d="M2 12h6.5a3.2 3.2 0 0 1 0 6.4H2z"/><path d="M15 12.5c0-2.5 1.7-4 4-4s4 1.6 4 4.2v.3h-7.9c0 2 1.3 3.4 3.4 3.4 1.4 0 2.3-.5 3-1.4"/><path d="M16.5 6.5h5"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@tarcyllamoura" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle w-11 h-11 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://wa.me/556198158802" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-circle w-11 h-11 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ================= LINKS RÁPIDOS ================= -->
+<main id="links" class="max-w-md md:max-w-lg mx-auto px-5 pb-4">
+
+  <div class="flex flex-col gap-4 mt-4">
+
+    <!-- Card 1 -->
+    <a href="https://tarcylla-moura-landing-page.pedromarts-93.workers.dev/" target="_blank" rel="noopener"
+       class="card fade-in flex items-center gap-4 p-4 rounded-3xl">
+      <div class="icon-circle w-14 h-14 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif-elegant text-lg text-vinho font-semibold leading-tight">Portfólio Completo</h3>
+        <p class="text-xs mt-0.5" style="color:var(--marrom-light)">Conheça meus projetos e resultados.</p>
+      </div>
+      <div class="arrow-circle w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="https://connectionamigosdoturismo.com.br" target="_blank" rel="noopener"
+       class="card fade-in flex items-center gap-4 p-4 rounded-3xl">
+      <div class="icon-circle w-14 h-14 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10.5 13.5L3 12l7.5-3M10.5 13.5L21 3l-4.5 15-4-4.5"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif-elegant text-lg text-vinho font-semibold leading-tight">Connection Amigos do Turismo</h3>
+        <p class="text-xs mt-0.5" style="color:var(--marrom-light)">Turismo, conexão e oportunidades.</p>
+      </div>
+      <div class="arrow-circle w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="https://www.youtube.com/@tarcyllamoura" target="_blank" rel="noopener"
+       class="card fade-in flex items-center gap-4 p-4 rounded-3xl">
+      <div class="icon-circle w-14 h-14 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif-elegant text-lg text-vinho font-semibold leading-tight">YouTube</h3>
+        <p class="text-xs mt-0.5" style="color:var(--marrom-light)">Assista aos meus conteúdos e palestras.</p>
+      </div>
+      <div class="arrow-circle w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="https://wa.me/556198158802?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20estrutura%C3%A7%C3%A3o%20digital" target="_blank" rel="noopener"
+       class="card fade-in flex items-center gap-4 p-4 rounded-3xl">
+      <div class="icon-circle w-14 h-14 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif-elegant text-lg text-vinho font-semibold leading-tight">Suporte e Serviços</h3>
+        <p class="text-xs mt-0.5" style="color:var(--marrom-light)">Tire dúvidas e conheça meus serviços.</p>
+      </div>
+      <div class="arrow-circle w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="https://wa.me/556198158802?text=Ol%C3%A1%2C%20Tarcylla%21%20Vim%20pelo%20seu%20link%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener"
+       class="card fade-in flex items-center gap-4 p-4 rounded-3xl">
+      <div class="icon-circle w-14 h-14 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif-elegant text-lg text-vinho font-semibold leading-tight">Fale Comigo</h3>
+        <p class="text-xs mt-0.5" style="color:var(--marrom-light)">Vamos entender sua necessidade e construir o próximo passo.</p>
+      </div>
+      <div class="arrow-circle w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<!-- ================= RODAPÉ ================= -->
+<footer class="mt-16 pb-10 text-center">
+  <div class="w-full h-px" style="background:linear-gradient(to right, transparent, var(--rosa), transparent)"></div>
+
+  <h3 class="fade-in font-serif-elegant text-xl text-vinho font-semibold tracking-[0.15em] mt-8">CONECTE-SE</h3>
+  <div class="divider mx-auto my-4 fade-in"></div>
+
+  <div class="fade-in flex items-center justify-center gap-4 mb-6">
+    <a href="https://www.behance.net/Tarcyllamoura" target="_blank" rel="noopener" aria-label="Behance" class="social-circle w-10 h-10 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 6h6a3 3 0 0 1 0 6H2z"/><path d="M2 12h6.5a3.2 3.2 0 0 1 0 6.4H2z"/><path d="M15 12.5c0-2.5 1.7-4 4-4s4 1.6 4 4.2v.3h-7.9c0 2 1.3 3.4 3.4 3.4 1.4 0 2.3-.5 3-1.4"/><path d="M16.5 6.5h5"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@tarcyllamoura" target="_blank" rel="noopener" aria-label="YouTube" class="social-circle w-10 h-10 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://wa.me/556198158802" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-circle w-10 h-10 rounded-full flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+
+  <img src="assets/logo-rosa.png" alt="Tarcylla Moura" class="w-10 h-10 object-contain mx-auto mb-4 fade-in opacity-90">
+
+  <p class="fade-in text-xs" style="color:var(--marrom-light)">2026 Tarcylla Moura. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 40);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
